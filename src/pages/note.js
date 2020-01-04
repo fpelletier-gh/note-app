@@ -31,6 +31,12 @@ const IndexPage = () => {
       const filteredSavedNote = savedNote.filter(
         note => note.id !== focusNoteId
       )
+      if(filteredSavedNote === []) {
+      setSavedNote(() => [
+        ...savedNote,
+        { title: title, note: note, id: focusNoteId },
+      ])
+      }
       setSavedNote(() => [
         ...filteredSavedNote,
         { title: title, note: note, id: focusNoteId },
@@ -58,13 +64,9 @@ const IndexPage = () => {
 
   const handleNewNote = () => {
     const newId = uuidv4()
-    if (title !== "" || (note !== "" && focusNoteId !== "")) {
+    if (title !== "" || note !== "" && focusNoteId !== "") {
       setTitle("")
       setNote("")
-      setSavedNote(savedNote => [
-        ...savedNote,
-        { title: "", note: "", id: newId },
-      ])
       setFocusNoteId(newId)
     }
   }
@@ -73,9 +75,6 @@ const IndexPage = () => {
     setSearch(e.target.value)
   }
 
-  console.log(focusNoteId)
-  console.log(savedNote)
-  console.log(search)
   return (
     <Layout>
       <SEO title="Note" />

@@ -1,16 +1,9 @@
 import React from "react"
 
 const noteDisplay = ({ search, savedNote, handleDeleteNote }) => {
-  let filteredNote = savedNote.filter(
-    notes => notes.title !== "" || notes.note !== ""
+  let filteredNote = savedNote.filter(note =>
+    note.title.toLowerCase().includes(search.toLowerCase())
   )
-
-  if (search !== "") {
-    filteredNote = filteredNote.filter(
-      note => note.title.toLowerCase().includes(search.toLowerCase())
-    )
-  }
-  console.log(filteredNote)
   return (
     <>
       {filteredNote.reverse().map(({ title, note, id }) => (
