@@ -1,0 +1,140 @@
+.container {
+  display: grid;
+  width: 100vw;
+  padding: 0.5rem;
+  grid-template-columns: 20rem 1fr;
+  grid-template-rows: 3rem auto;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  grid-template-areas:
+    "search new-note"
+    "aside main";
+
+  & .search-bar {
+    grid-area: search;
+    width: 100%;
+    height: 100%;
+    padding-left: 0.5rem;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+  }
+
+  & .new-note {
+    grid-area: new-note;
+    justify-self: start;
+    height: 100%;
+    width: 5rem;
+    border-radius: 7px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border: none;
+    outline: none;
+  }
+  & .aside {
+    grid-area: aside;
+    display: grid;
+    grid-template-columns: 20rem;
+    grid-template-rows: 5rem;
+    grid-row-gap: 0.5rem;
+    align-content: start;
+
+    & div {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      color: black;
+      border-radius: 7px;
+      text-align: center;
+      display: grid;
+      grid-template-columns: auto 2rem;
+      grid-template-rows: 2rem auto;
+      grid-template-areas:
+        "title delete"
+        "textarea textarea";
+
+      & h4 {
+        grid-area: title;
+        font-size: 1.2rem;
+        font-weight: bold;
+        overflow: hidden;
+        align-self: center;
+        text-align: left;
+        justify-self: start;
+        width: 100%;
+        padding-left: 0.5rem;
+      }
+
+      & .delete-btn {
+        grid-area: delete;
+        align-self: center;
+        justify-self: center;
+        font-size: 1rem;
+        color: black;
+        width: 100%;
+        padding: 3px;
+      }
+
+      & textarea {
+        grid-area: textarea;
+        border: none;
+        background-color: transparent;
+        resize: none;
+        outline: none;
+        font-family: arial;
+        width: 100%;
+        height: 3rem;
+        justify-self: start;
+        color: black;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  & .main {
+    grid-area: main;
+    display: grid;
+    width: 100%;
+    grid-template-rows: 3rem 10rem 2rem;
+    grid-template-columns: auto;
+    grid-template-areas:
+      "note-title"
+      "note"
+      "submit";
+    grid-row-gap: 0.5rem;
+
+    & .note-title {
+      width: 100%;
+      grid-area: note-title;
+      border-radius: 7px;
+      background-color: white;
+      border: none;
+      outline: none;
+      font-family: arial;
+      padding-left: 0.5rem;
+      font-weight: bold;
+    }
+
+    & .note {
+      grid-area: note;
+      border: none;
+      background-color: transparent;
+      resize: none;
+      outline: none;
+      font-family: arial;
+      width: 100%;
+      border-radius: 7px;
+      background-color: white;
+      padding: 0.5rem;
+    }
+
+    & .submitBtn {
+      grid-area: submit;
+      border: none;
+      outline: none;
+      border-radius: 7px;
+      background-color: white;
+    }
+  }
+}
