@@ -3,7 +3,6 @@ import React from "react"
 const formNote = ({
   handleTitleChange,
   handleNoteChange,
-  handleSubmit,
   className,
   title,
   note,
@@ -25,9 +24,6 @@ const formNote = ({
         onChange={handleNoteChange}
         value={note}
       />
-      <button type="submit" className="submitBtn" onClick={handleSubmit}>
-        Save
-      </button>
     </form>
   )
 }

@@ -5,7 +5,7 @@ const Footer = () => {
   const {author} = useSiteMetadata()
   return (
     <footer>
-      <div>Created by {author} {new Date().getFullYear()}</div>
+      <div>Created by {author}</div>
     </footer>
   )
 }

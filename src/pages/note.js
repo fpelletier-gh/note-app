@@ -32,12 +32,12 @@ const IndexPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    setDisplayNote(false)
-    if (focusNoteId === "") {
+    if (focusNoteId === "" && (title !== "" || note !== "")) {
       const newId = uuidv4()
       setSavedNote(savedNote => [...savedNote, { title, note, id: newId }])
       setFocusNoteId(newId)
-    } else {
+      setDisplayNote(false)
+    } else if (title !== "" || note !== "") {
       const filteredSavedNote = savedNote.filter(
         note => note.id !== focusNoteId
       )
@@ -51,6 +51,7 @@ const IndexPage = () => {
         ...filteredSavedNote,
         { title: title, note: note, id: focusNoteId },
       ])
+      setDisplayNote(false)
     }
   }
 
@@ -107,22 +108,40 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Note" />
       <div className="container">
-        {!displayNote ? (
-          <button className="new-note" onClick={handleNewNote}>
-            New note
-          </button>
+        {!displayNote || width >= 768 ? (
+          <>
+            {displayNote || width >= 768 ? (
+              <button
+                type="submit"
+                className="submit-btn"
+                onClick={handleSubmit}
+              >
+                Save
+              </button>
+            ) : null}
+            <button className="primary-btn" onClick={handleNewNote}>
+              New note
+            </button>
+          </>
         ) : (
-          <button className="new-note cancel" onClick={cancelNewNote}>
-            Cancel
-          </button>
+          <>
+            <button type="submit" className="submit-btn" onClick={handleSubmit}>
+              Save
+            </button>
+            <button className="primary-btn" onClick={cancelNewNote}>
+              Cancel
+            </button>
+          </>
         )}
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search"
-          onChange={handleSearchChange}
-          value={search}
-        />
+        {!displayNote || width >= 768 ? (
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search"
+            onChange={handleSearchChange}
+            value={search}
+          />
+        ) : null}
         {!displayNote || width >= 768 ? (
           <aside className="aside" onClick={showNote}>
             <NoteDisplay

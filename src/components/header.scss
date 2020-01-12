@@ -4,21 +4,21 @@ header {
   align-items: center;
   height: 100%;
   & a {
-    font-size:1.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
     display: block;
     color: white;
 
-    &:hover{
-      color: #e5e5e5;
+    &:hover {
+      color: #9dd857;
     }
   }
-  & ul{
+  & ul {
     list-style: none;
     display: flex;
     justify-content: flex-end;
-    & li{
+    & li {
       padding: 1rem;
     }
   }

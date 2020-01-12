@@ -8,18 +8,20 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
 endif
 set shortmess=aoO
 badd +16 src/components/noteDisplay.js
-badd +26 term://.//3871:/bin/zsh
-badd +27 src/pages/note.js
-badd +5 term://.//4220:/bin/zsh
-badd +1 src/components/formNote.js
-badd +54 term://.//2548:/bin/zsh
-badd +35 src/components/note.scss
-badd +26 term://.//3280:/bin/zsh
-badd +18 src/components/layout.scss
-badd +54 term://.//9738:/bin/zsh
+badd +4 term://.//1671:/bin/zsh
+badd +1 src/pages/note.js
+badd +22 src/components/formNote.js
+badd +161 src/components/note.scss
+badd +45 src/components/layout.scss
+badd +23 src/components/layout.js
+badd +17 term://.//30256:/bin/zsh
+badd +12 src/pages/index.js
+badd +14 src/components/header.scss
+badd +8 src/components/footer.js
+badd +72 .gitignore
 argglobal
 %argdel
-edit src/components/note.scss
+edit src/pages/note.js
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -36,12 +38,12 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 40 - ((27 * winheight(0) + 27) / 54)
+let s:l = 112 - ((25 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-40
-normal! 04|
+112
+normal! 012|
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
