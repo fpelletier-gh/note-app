@@ -9,14 +9,12 @@ import uuidv4 from "uuid/v4"
 const IndexPage = () => {
   const [title, setTitle] = useState("")
   const [note, setNote] = useState("")
-  const [savedNote, setSavedNote] = useState(
-    JSON.parse(localStorage.getItem("localSavedNote")) || []
-  )
+  const [savedNote, setSavedNote] = useState([])
+  const [width, setWidth] = useState(400)
   const [search, setSearch] = useState("")
   const [focusNoteId, setFocusNoteId] = useState("")
   const [lastFocusNoteId, setLastFocusNoteId] = useState("")
   const [displayNote, setDisplayNote] = useState(false)
-  const [width, setWidth] = useState(window.innerWidth)
 
   const handleTitleChange = e => {
     setTitle(e.target.value)
@@ -25,6 +23,11 @@ const IndexPage = () => {
   const handleNoteChange = e => {
     setNote(e.target.value)
   }
+
+  useEffect(() => {
+    setSavedNote(JSON.parse(localStorage.getItem("localSavedNote")) || [])
+    setWidth(window.innerWidth)
+  }, [])
 
   useEffect(() => {
     localStorage.setItem("localSavedNote", JSON.stringify(savedNote))
@@ -103,7 +106,6 @@ const IndexPage = () => {
     setSearch(e.target.value)
   }
 
-  console.log(width)
   return (
     <Layout>
       <SEO title="Note" />

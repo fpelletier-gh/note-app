@@ -7,9 +7,9 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +16 src/components/noteDisplay.js
+badd +3 src/components/noteDisplay.js
 badd +4 term://.//1671:/bin/zsh
-badd +1 src/pages/note.js
+badd +13 src/pages/note.js
 badd +22 src/components/formNote.js
 badd +161 src/components/note.scss
 badd +45 src/components/layout.scss
@@ -18,16 +18,23 @@ badd +17 term://.//30256:/bin/zsh
 badd +12 src/pages/index.js
 badd +14 src/components/header.scss
 badd +8 src/components/footer.js
-badd +72 .gitignore
+badd +53 .gitignore
+badd +64 term://.//11989:/bin/zsh
+badd +0 term://.//12383:/bin/zsh
 argglobal
 %argdel
 edit src/pages/note.js
 set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
 wincmd t
 set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
+wincmd =
 argglobal
 setlocal fdm=manual
 setlocal fde=0
@@ -38,12 +45,32 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 112 - ((25 * winheight(0) + 27) / 54)
+let s:l = 151 - ((47 * winheight(0) + 27) / 54)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-112
-normal! 012|
+151
+normal! 049|
+wincmd w
+argglobal
+if bufexists("term://.//12383:/bin/zsh") | buffer term://.//12383:/bin/zsh | else | edit term://.//12383:/bin/zsh | endif
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 382 - ((48 * winheight(0) + 27) / 54)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+382
+normal! 0
+wincmd w
+2wincmd w
+wincmd =
 tabnext 1
 if exists('s:wipebuf') && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
