@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Note app`,
+    title: `Notes app`,
     description: `A simple note taking application`,
     author: `Francis`,
   },

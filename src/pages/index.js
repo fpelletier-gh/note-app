@@ -19,11 +19,18 @@ const IndexPage = () => {
   const [visited, setVisited] = useState(true)
 
   const handleTitleChange = e => {
+    console.log(e.target.value)
     setTitle(e.target.value)
   }
 
   const handleNoteChange = e => {
     setNote(e.target.value)
+  }
+
+  const handleKeyPress = e => {
+    if(e.key === 'Enter') {
+      handleSubmit(e)
+    }
   }
 
   useEffect(() => {
@@ -130,6 +137,7 @@ const IndexPage = () => {
           <div className="container">
             {!displayNote || width >= 768 ? (
               <>
+              <h1 className='app-title'>Notes App</h1>
                 {displayNote || width >= 768 ? (
                   <button
                     type="submit"
@@ -152,7 +160,7 @@ const IndexPage = () => {
                 >
                   Save
                 </button>
-                <button className="primary-btn" onClick={cancelNewNote}>
+                <button className="cancel-btn" onClick={cancelNewNote}>
                   Cancel
                 </button>
               </>
@@ -180,6 +188,7 @@ const IndexPage = () => {
                 className="main"
                 handleTitleChange={handleTitleChange}
                 handleNoteChange={handleNoteChange}
+                handleKeyPress={ handleKeyPress }
                 handleSubmit={handleSubmit}
                 title={title}
                 note={note}

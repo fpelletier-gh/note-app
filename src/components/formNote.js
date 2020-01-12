@@ -3,6 +3,7 @@ import React from "react"
 const formNote = ({
   handleTitleChange,
   handleNoteChange,
+  handleKeyPress,
   className,
   title,
   note,
@@ -15,6 +16,7 @@ const formNote = ({
         name="title"
         placeholder="Title"
         onChange={handleTitleChange}
+        onKeyPress={handleKeyPress}
         value={title}
       />
       <textarea
