@@ -31,8 +31,8 @@ body {
     grid-template-rows: 1fr 2rem;
     grid-template-columns: auto;
     grid-template-areas:
-    'main'
-    'footer';
+      "main"
+      "footer";
     height: 100vh;
     width: 100%;
     z-index: 20;
@@ -72,12 +72,15 @@ body {
       z-index: 30;
       display: block;
       align-self: center;
-      text-decoration: none;
-      color: #fff;
+      color: white;
       font-weight: bold;
       margin-top: 1rem;
       padding: 0.5rem 3rem;
       border-radius: 10px;
+      text-align: center;
+      border: none;
+      outline: none;
+      filter: drop-shadow(0 0 0.2rem #222);
       background-color: #6fcc02;
       &:hover {
         background-color: #9dd857;

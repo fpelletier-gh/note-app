@@ -19,7 +19,6 @@ const IndexPage = () => {
   const [visited, setVisited] = useState(true)
 
   const handleTitleChange = e => {
-    console.log(e.target.value)
     setTitle(e.target.value)
   }
 
@@ -28,7 +27,7 @@ const IndexPage = () => {
   }
 
   const handleKeyPress = e => {
-    if(e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleSubmit(e)
     }
   }
@@ -36,7 +35,6 @@ const IndexPage = () => {
   useEffect(() => {
     setSavedNote(JSON.parse(localStorage.getItem("localSavedNote")) || [])
     setWidth(window.innerWidth)
-    console.log(JSON.parse(localStorage.getItem("visited")))
     if (JSON.parse(localStorage.getItem("visited")) !== true) {
       setVisited(false)
     }
@@ -137,7 +135,7 @@ const IndexPage = () => {
           <div className="container">
             {!displayNote || width >= 768 ? (
               <>
-              <h1 className='app-title'>Notes App</h1>
+                <h1 className="app-title">Notes App</h1>
                 {displayNote || width >= 768 ? (
                   <button
                     type="submit"
@@ -188,7 +186,7 @@ const IndexPage = () => {
                 className="main"
                 handleTitleChange={handleTitleChange}
                 handleNoteChange={handleNoteChange}
-                handleKeyPress={ handleKeyPress }
+                handleKeyPress={handleKeyPress}
                 handleSubmit={handleSubmit}
                 title={title}
                 note={note}
