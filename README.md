@@ -6,13 +6,28 @@ This project was learn the foundation of react js, Gatsby js and SASS by buildin
 
 [Live preview](https://noteapp.francispelletier.ca)
 
+## Table of Contents
+
+<!-- vim-markdown-toc GFM -->
+
+- [Requirements](#requirements)
+  - [Node js LTS](#node-js-lts)
+- [Installation](#installation)
+- [Development](#development)
+  - [Install Dependency](#install-dependency)
+  - [Development Server](#development-server)
+- [Production](#production)
+  - [Deployment](#deployment)
+
+<!-- vim-markdown-toc -->
+
 ## Requirements
 
 - `Node js LTS` ([Node.js](https://nodejs.org/en/download/))
 
 ### Node js LTS
 
-Assuming you have [Node Version Manager](https://github.com/nvm-sh/nvm) installed:
+Assuming you have [Node Version Manager](https://github.com/nvm-sh/nvm) installed
 
 ```
 $ nvm install --lts
@@ -20,38 +35,47 @@ $ nvm install --lts
 
 ## Installation
 
-### Setup for local development:
+## Development
 
-Clone the repository:
+Clone the repository
 
 ```
 $ git clone https://github.com/fpelletier-gh/note-app
 ```
 
-Change directory:
+Change directory
 
 ```
 $ cd note-app
 ```
 
-Install node module:
+### Install Dependency
+
+Install node module
 
 ```
 $ npm install
 ```
 
-Launch the development server:
+### Development Server
+
+Launch the development server
 
 ```
 $ npm run start
 ```
 
-### Setup for production:
+## Production
 
-Create the production build:
+Create the production build
 
 ```
 $ npm run build
 ```
 
-**_Deploy to your favorite CDN_**
+### Deployment
+
+Some Deployment options
+
+- [Netlify](https://netlify.com/) (Recomended)
+- [Vercel](https://vercel.com/)
