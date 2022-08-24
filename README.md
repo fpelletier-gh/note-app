@@ -13,10 +13,10 @@ This project was learn the foundation of react js, Gatsby js and SASS by buildin
 - [Requirements](#requirements)
   - [Node js LTS](#node-js-lts)
 - [Installation](#installation)
-- [Development](#development)
+  - [Development](#development)
   - [Install Dependency](#install-dependency)
   - [Development Server](#development-server)
-- [Production](#production)
+  - [Production](#production)
   - [Deployment](#deployment)
 
 <!-- vim-markdown-toc -->
@@ -35,7 +35,7 @@ $ nvm install --lts
 
 ## Installation
 
-## Development
+### Development
 
 Clone the repository
 
@@ -65,7 +65,7 @@ Launch the development server
 $ npm run start
 ```
 
-## Production
+### Production
 
 Create the production build
 
