@@ -1,35 +1,34 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
+import { getImage } from "gatsby-plugin-image"
+
+import { convertToBgImage } from "gbimage-bridge"
 import BackgroundImage from "gatsby-background-image"
 
-const BackgroundSection = ({ children, className, backdropClassName }) => (
-  <StaticQuery
-    query={graphql`
+const GbiBridged = ({ className, children }) => {
+  const { placeholderImage } = useStaticQuery(
+    graphql`
       query {
-        desktop: file(relativePath: { eq: "backgroundImg.jpg" }) {
+        placeholderImage: file(relativePath: { eq: "backgroundImg.jpg" }) {
           childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(width: 1920, placeholder: BLURRED, formats: [JPG])
           }
         }
       }
-    `}
-    render={data => {
-      // Set ImageData.
-      const imageData = data.desktop.childImageSharp.fluid
-      return (
-        <BackgroundImage
-          Tag="section"
-          fluid={imageData}
-          className={className}
-          backgroundColor={`#040e18`}
-        >
-            {children}
-        </BackgroundImage>
-      )
-    }}
-  />
-)
+    `
+  )
+  const image = getImage(placeholderImage)
+  const bgImage = convertToBgImage(image)
 
-export default BackgroundSection
+  return (
+    <BackgroundImage
+      Tag="section"
+      {...bgImage}
+      className={className}
+      preserveStackingContext
+    >
+      {children}
+    </BackgroundImage>
+  )
+}
+export default GbiBridged
