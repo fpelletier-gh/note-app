@@ -135,7 +135,12 @@ const IndexPage = () => {
           <div className="container">
             {!displayNote || width >= 768 ? (
               <>
-                <h1 className="app-title">Notes App</h1>
+                <button
+                  className="link-button"
+                  onClick={() => setVisited(false)}
+                >
+                  <h1 className="app-title">Notes App</h1>
+                </button>
                 {displayNote || width >= 768 ? (
                   <button
                     type="submit"
