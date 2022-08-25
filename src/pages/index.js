@@ -151,7 +151,7 @@ const IndexPage = () => {
                   </button>
                 ) : null}
                 <button className="primary-btn" onClick={handleNewNote}>
-                  New note
+                  New
                 </button>
               </>
             ) : (
