@@ -113,10 +113,14 @@ body {
 }
 
 .footer-icon {
-  color: white;
+  color: #8ae900;
   width: 1.5rem;
   height: 1.5rem;
   margin: 0.8rem;
+
+  &:hover {
+    color: #aded50;
+  }
 }
 
 .icon {
