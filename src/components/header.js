@@ -5,6 +5,7 @@ import  './header.scss'
 
 const Header = () => (
   <header>
+    <div className="logo"><Link to="/">Notes App</Link></div>
     <ul>
       <li>
         <Link to="/">Home</Link>

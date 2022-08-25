@@ -1,17 +1,16 @@
 header {
+  grid-area: header;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  height: 100%;
   & a {
     font-size: 1.5rem;
-    font-weight: bold;
     text-decoration: none;
     display: block;
-    color: white;
+    color: #dff5ce;
 
     &:hover {
-      color: #9dd857;
+      color: #86b049;
     }
   }
   & ul {
