@@ -5,7 +5,7 @@ import "../components/note.scss"
 import FormNote from "../components/formNote"
 import NoteDisplay from "../components/noteDisplay"
 import Landing from "../components/landing"
-import uuidv4 from "uuid/v4"
+import { v4 as uuidv4 } from "uuid"
 
 const IndexPage = () => {
   const [title, setTitle] = useState("")
@@ -18,15 +18,15 @@ const IndexPage = () => {
   const [displayNote, setDisplayNote] = useState(false)
   const [visited, setVisited] = useState(true)
 
-  const handleTitleChange = e => {
+  const handleTitleChange = (e) => {
     setTitle(e.target.value)
   }
 
-  const handleNoteChange = e => {
+  const handleNoteChange = (e) => {
     setNote(e.target.value)
   }
 
-  const handleKeyPress = e => {
+  const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSubmit(e)
     }
@@ -48,16 +48,16 @@ const IndexPage = () => {
     localStorage.setItem("localSavedNote", JSON.stringify(savedNote))
   }, [savedNote])
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     if (focusNoteId === "" && (title !== "" || note !== "")) {
       const newId = uuidv4()
-      setSavedNote(savedNote => [...savedNote, { title, note, id: newId }])
+      setSavedNote((savedNote) => [...savedNote, { title, note, id: newId }])
       setFocusNoteId(newId)
       setDisplayNote(false)
     } else if (title !== "" || note !== "") {
       const filteredSavedNote = savedNote.filter(
-        note => note.id !== focusNoteId
+        (note) => note.id !== focusNoteId
       )
       if (filteredSavedNote === []) {
         setSavedNote(() => [
@@ -73,9 +73,9 @@ const IndexPage = () => {
     }
   }
 
-  const handleDeleteNote = e => {
+  const handleDeleteNote = (e) => {
     const noteId = e.target.getAttribute("name")
-    setSavedNote(savedNote => savedNote.filter(note => note.id !== noteId))
+    setSavedNote((savedNote) => savedNote.filter((note) => note.id !== noteId))
   }
 
   const updateWidth = () => {
@@ -87,11 +87,11 @@ const IndexPage = () => {
     return () => window.removeEventListener("resize", updateWidth)
   })
 
-  const showNote = e => {
+  const showNote = (e) => {
     const noteId = e.target.parentElement.getAttribute("name")
       ? e.target.parentElement.getAttribute("name")
       : e.target.getAttribute("name")
-    const selectedNote = savedNote.filter(note => note.id === noteId)
+    const selectedNote = savedNote.filter((note) => note.id === noteId)
     if (e.target.getAttribute("class") !== "delete-btn" && noteId !== null) {
       setFocusNoteId(noteId)
       //setCurrentNote(() => savedNote.filter(note => note.id === noteId))
@@ -117,7 +117,7 @@ const IndexPage = () => {
     setFocusNoteId(lastFocusNoteId)
   }
 
-  const handleSearchChange = e => {
+  const handleSearchChange = (e) => {
     setSearch(e.target.value)
   }
 
