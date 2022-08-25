@@ -24,13 +24,14 @@ body {
   background-size: cover;
   z-index: 10;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 
   & .backdrop {
     display: grid;
-    grid-template-rows: 1fr 2rem;
+    grid-template-rows: 4rem 1fr 6rem;
     grid-template-columns: auto;
     grid-template-areas:
+      "header"
       "main"
       "footer";
     height: 100vh;
@@ -45,8 +46,10 @@ body {
     z-index: 30;
     font-size: 1.2rem;
     text-align: center;
+    letter-spacing: 1.5px;
     display: grid;
     justify-content: center;
+    height: 100%;
     width: 100%;
     max-width: 60rem;
 
@@ -62,28 +65,29 @@ body {
 
     & h1 {
       font-size: 4rem;
+      padding-bottom: 1.5rem;
     }
 
     & h3 {
       font-size: 2rem;
+      font-weight: normal;
+      padding-bottom: 1rem;
     }
 
     & .main-btn {
-      font-size: 2rem;
-      width: fit-content;
+      font-size: 1.5rem;
       z-index: 30;
       display: block;
       align-self: center;
       color: white;
-      font-weight: bold;
       margin-top: 1rem;
-      padding: 0.5rem 3rem;
-      border-radius: 10px;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
       text-align: center;
       border: none;
       outline: none;
       filter: drop-shadow(0 0 0.2rem #222);
-      background-color: #6fcc02;
+      background-color: #86b049;
       &:hover {
         background-color: #9dd857;
       }
@@ -95,7 +99,37 @@ body {
     font-size: 1.2rem;
     text-align: center;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
   }
+}
+
+.footer-navigation {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.footer-icon {
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.8rem;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+.link-button {
+  color: white;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
