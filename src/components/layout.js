@@ -15,7 +15,9 @@ const Layout = ({ children }) => {
   return (
     <BackgroundImage className="siteLayout">
       <div className="backdrop">
-        <header />
+        <header className="header">
+          <h1 className="app-title mobile-heading">Notes App</h1>
+        </header>
         <main>{children}</main>
         <Footer />
       </div>

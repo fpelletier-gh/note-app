@@ -137,3 +137,21 @@ body {
   background-color: transparent;
   border: none;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-heading {
+  display: block;
+  color: white;
+  font-size: 2rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-heading {
+    display: none;
+  }
+}
