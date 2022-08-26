@@ -6,6 +6,9 @@ const noteDisplay = ({ search, savedNote, handleDeleteNote }) => {
   )
   return (
     <>
+      {savedNote.length <= 0 ? (
+        <h5 className="empty-note">There are no notes yet.</h5>
+      ) : null}
       {filteredNote.reverse().map(({ title, note, id }) => (
         <div className="note-container" key={id} name={id}>
           <button className="link-button" onClick={handleDeleteNote} name={id}>
